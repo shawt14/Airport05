@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Airport05</string>
     <string name="arrivals_label">Chegada</string>
+    <string name="add_flight_description">Adicionar Voo</string>
 </resources>

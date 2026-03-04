@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Airport05">
         <activity
+            android:name=".AdicionarVooActivity"
+            android:exported="false" />
+        <activity
             android:name=".DetalheVooActivity"
             android:exported="false" />
         <activity

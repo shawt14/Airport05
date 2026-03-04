@@ -12,6 +12,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -21,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private ItemAdapter adapter;
 
     private static final int REQUEST_DETALHES = 1;
+    private static final int REQUEST_ADICIONAR = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +48,14 @@ public class MainActivity extends AppCompatActivity {
 
                 intent.putExtra("VOO_OBJ", vooSelecionado);
                 intent.putExtra("POSICAO", position);
-                startActivityForResult(intent, 1);
+                startActivityForResult(intent, REQUEST_DETALHES);
             }
+        });
+
+        FloatingActionButton fab = findViewById(R.id.fabAdicionarVoo);
+        fab.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, AdicionarVooActivity.class);
+            startActivityForResult(intent, REQUEST_ADICIONAR);
         });
 
 
@@ -62,11 +71,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestcode, int resultcode, Intent data)
     {
         super.onActivityResult(requestcode, resultcode, data);
-        if(resultcode == RESULT_OK && data != null && data.hasExtra("POS_ELIMINAR")) {
+        if (requestcode == REQUEST_DETALHES && resultcode == RESULT_OK && data != null && data.hasExtra("POS_ELIMINAR")) {
             int pos  = data.getIntExtra("POS_ELIMINAR", -1);
             if(pos != -1)
             {
                 lista_voos.remove(pos);
+                adapter.notifyDataSetChanged();
+            }
+        } else if (requestcode == REQUEST_ADICIONAR && resultcode == RESULT_OK && data != null && data.hasExtra("NOVO_VOO")) {
+            Voo novoVoo = (Voo) data.getSerializableExtra("NOVO_VOO");
+            if (novoVoo != null) {
+                lista_voos.add(novoVoo);
                 adapter.notifyDataSetChanged();
             }
         }
