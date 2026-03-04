@@ -42,6 +42,6 @@ public class ItemAdapter extends ArrayAdapter<Voo> {
         }
         tvTimes.setText(timeInfo);
 
-        return super.getView(position, convertView, parent);
+        return convertView;
     }
 }

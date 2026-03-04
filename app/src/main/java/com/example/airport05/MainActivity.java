@@ -3,7 +3,6 @@ package com.example.airport05;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
@@ -29,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
+        lista_voos = new ArrayList<>();
         inicializar();
 
         adapter = new ItemAdapter(this, lista_voos);
@@ -72,10 +72,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     private void inicializar() {
-        ListView listView = findViewById(R.id.flight_list_view);
-
-        lista_voos.add(new Voo("TP123", "Lisboa", "10:30", "10:45", "26/02/2026"));
-        lista_voos.add(new Voo("TP123", "Lisboa", "10:30", "10:45", "26/02/2026"));
-        lista_voos.add(new Voo("TP123", "Lisboa", "10:30", "10:45", "26/02/2026"));
+        lista_voos.add(new Voo("Lisboa", "TP123", "10:30", "10:45", "26/02/2026"));
+        lista_voos.add(new Voo("Lisboa", "TP123", "10:30", "10:45", "26/02/2026"));
+        lista_voos.add(new Voo("Lisboa", "TP123", "10:30", "10:45", "26/02/2026"));
     }
 }
