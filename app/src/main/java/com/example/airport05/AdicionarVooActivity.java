@@ -12,6 +12,10 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+
 public class AdicionarVooActivity extends AppCompatActivity {
 
     @Override
@@ -49,6 +53,30 @@ public class AdicionarVooActivity extends AppCompatActivity {
                 return;
             }
 
+            boolean valid = true;
+
+            if (partida.isEmpty() || !isValidTime(partida)) {
+                etPartida.setError("Hora inválida (ex: 08:00)");
+                valid = false;
+            }
+
+            if (chegadaPrevista.isEmpty() || !isValidTime(chegadaPrevista)) {
+                etChegadaPrevista.setError("Hora inválida (ex: 10:30)");
+                valid = false;
+            }
+
+            if (!chegadaFinal.isEmpty() && !isValidTime(chegadaFinal)) {
+                etChegadaFinal.setError("Hora inválida (ex: 10:45)");
+                valid = false;
+            }
+
+            if (data.isEmpty() || !isValidDate(data)) {
+                etData.setError("Data inválida (ex: 26/02/2026)");
+                valid = false;
+            }
+
+            if (!valid) return;
+
             Voo novoVoo = new Voo(origem, destino, numVoo, partida, chegadaPrevista, chegadaFinal, data, companhia, terminal);
             Intent resultIntent = new Intent();
             resultIntent.putExtra("NOVO_VOO", novoVoo);
@@ -66,5 +94,29 @@ public class AdicionarVooActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+
+    private boolean isValidTime(String value) {
+        if (!value.matches("\\d{2}:\\d{2}")) return false;
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm", Locale.getDefault());
+        sdf.setLenient(false);
+        try {
+            sdf.parse(value);
+            return true;
+        } catch (ParseException e) {
+            return false;
+        }
+    }
+
+    private boolean isValidDate(String value) {
+        if (!value.matches("\\d{2}/\\d{2}/\\d{4}")) return false;
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+        sdf.setLenient(false);
+        try {
+            sdf.parse(value);
+            return true;
+        } catch (ParseException e) {
+            return false;
+        }
     }
 }
