@@ -29,10 +29,14 @@ public class ItemAdapter extends ArrayAdapter<Voo> {
 
         TextView tvNumber = convertView.findViewById(R.id.tv_flight_number);
         TextView tvOrigin = convertView.findViewById(R.id.tv_origin);
+        TextView tvCompany = convertView.findViewById(R.id.tv_company);
+        TextView tvTerminal = convertView.findViewById(R.id.tv_terminal);
         TextView tvTimes = convertView.findViewById(R.id.tv_times);
 
         tvNumber.setText(voo.GetNum_Voo());
         tvOrigin.setText(voo.GetOrigem());
+        tvCompany.setText(voo.GetCompanhia());
+        tvTerminal.setText(voo.GetTerminal());
 
         String timeInfo = "Previsto: " + voo.GetChegada_Prevista();
 
