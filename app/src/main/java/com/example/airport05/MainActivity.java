@@ -87,8 +87,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     private void inicializar() {
-        lista_voos.add(new Voo("Lisboa", "TP123", "08:00", "10:30", "10:45", "26/02/2026", "TAP Air Portugal", "Terminal 1"));
-        lista_voos.add(new Voo("Porto", "TP456", "09:15", "11:00", "11:10", "26/02/2026", "TAP Air Portugal", "Terminal 2"));
-        lista_voos.add(new Voo("Faro", "TP789", "07:30", "09:45", "10:00", "26/02/2026", "Ryanair", "Terminal 1"));
+        lista_voos.add(new Voo("Lisboa", "Londres", "TP123", "08:00", "10:30", "10:45", "26/02/2026", "TAP Air Portugal", "Terminal 1"));
+        lista_voos.add(new Voo("Porto", "Paris", "TP456", "09:15", "11:00", "11:10", "26/02/2026", "TAP Air Portugal", "Terminal 2"));
+        lista_voos.add(new Voo("Faro", "Madrid", "TP789", "07:30", "09:45", "10:00", "26/02/2026", "Ryanair", "Terminal 1"));
     }
 }

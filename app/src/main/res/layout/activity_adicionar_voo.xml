@@ -29,6 +29,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/item_padding"
+            android:text="Destino"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etDestino"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ex: Londres"
+            android:inputType="text" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/item_padding"
             android:text="Número do Voo"
             android:textStyle="bold" />
 

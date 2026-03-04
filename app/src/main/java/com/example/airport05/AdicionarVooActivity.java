@@ -21,6 +21,7 @@ public class AdicionarVooActivity extends AppCompatActivity {
         setContentView(R.layout.activity_adicionar_voo);
 
         EditText etOrigem = findViewById(R.id.etOrigem);
+        EditText etDestino = findViewById(R.id.etDestino);
         EditText etNumVoo = findViewById(R.id.etNumVoo);
         EditText etPartida = findViewById(R.id.etPartida);
         EditText etChegadaPrevista = findViewById(R.id.etChegadaPrevista);
@@ -34,6 +35,7 @@ public class AdicionarVooActivity extends AppCompatActivity {
 
         btnAdicionar.setOnClickListener(v -> {
             String origem = etOrigem.getText().toString().trim();
+            String destino = etDestino.getText().toString().trim();
             String numVoo = etNumVoo.getText().toString().trim();
             String partida = etPartida.getText().toString().trim();
             String chegadaPrevista = etChegadaPrevista.getText().toString().trim();
@@ -47,7 +49,7 @@ public class AdicionarVooActivity extends AppCompatActivity {
                 return;
             }
 
-            Voo novoVoo = new Voo(origem, numVoo, partida, chegadaPrevista, chegadaFinal, data, companhia, terminal);
+            Voo novoVoo = new Voo(origem, destino, numVoo, partida, chegadaPrevista, chegadaFinal, data, companhia, terminal);
             Intent resultIntent = new Intent();
             resultIntent.putExtra("NOVO_VOO", novoVoo);
             setResult(RESULT_OK, resultIntent);

@@ -22,7 +22,7 @@ public class DetalheVooActivity extends AppCompatActivity {
         int posicao = getIntent().getIntExtra("POSICAO", -1);
 
         TextView txtOrigem = findViewById(R.id.detalheOrigem);
-        txtOrigem.setText((voo.GetOrigem() + " (" + voo.GetNum_Voo() + ")"));
+        txtOrigem.setText(voo.GetOrigem() + " -> " + voo.GetDestino() + " (" + voo.GetNum_Voo() + ")");
 
         TextView txtInfo = findViewById(R.id.detalheInfo);
         txtInfo.setText("Partida: " + voo.GetPartida() + "  Previsto: " + voo.GetChegada_Prevista() + "  Real: " + voo.GetChegada_Final() + "\nData: " + voo.GetData() + "\nCompanhia: " + voo.GetCompanhia() + "\nTerminal: " + voo.GetTerminal());

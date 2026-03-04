@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class Voo implements Serializable {
     private String m_Origem;
+    private String m_Destino;
     private String m_num_voo;
     private String m_hora_partida;
     private String m_hora_chegada_prevista;
@@ -12,8 +13,9 @@ public class Voo implements Serializable {
     private String m_companhia;
     private String m_terminal;
 
-    public Voo(String origem, String num_voo, String partida, String chegada_prevista, String chegada_final, String data, String companhia, String terminal){
+    public Voo(String origem, String destino, String num_voo, String partida, String chegada_prevista, String chegada_final, String data, String companhia, String terminal){
         m_Origem = origem;
+        m_Destino = destino;
         m_num_voo = num_voo;
         m_hora_partida = partida;
         m_hora_chegada_prevista = chegada_prevista;
@@ -25,6 +27,10 @@ public class Voo implements Serializable {
 
     public String GetOrigem(){
         return m_Origem;
+    }
+
+    public String GetDestino(){
+        return m_Destino;
     }
 
     public String GetNum_Voo(){
