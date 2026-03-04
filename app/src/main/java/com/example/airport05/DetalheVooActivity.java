@@ -24,6 +24,9 @@ public class DetalheVooActivity extends AppCompatActivity {
         TextView txtOrigem = findViewById(R.id.detalheOrigem);
         txtOrigem.setText((voo.GetOrigem() + " (" + voo.GetNum_Voo() + ")"));
 
+        TextView txtInfo = findViewById(R.id.detalheInfo);
+        txtInfo.setText("Previsto: " + voo.GetChegada_Prevista() + "  Real: " + voo.GetChegada_Final() + "\nData: " + voo.GetData());
+
         findViewById(R.id.btnOK).setOnClickListener(v -> finish());
 
         findViewById(R.id.btnEliminar).setOnClickListener(v -> {

@@ -23,7 +23,7 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/deatlheInfo"
+        android:id="@+id/detalheInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="16sp"
