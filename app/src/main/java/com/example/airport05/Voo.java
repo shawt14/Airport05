@@ -9,14 +9,18 @@ public class Voo implements Serializable {
     private String m_hora_chegada_prevista;
     private String  m_hora_chegada_final;
     private String m_data;
+    private String m_companhia;
+    private String m_terminal;
 
-    public Voo(String origem, String num_voo, String partida, String chegada_prevista, String chegada_final, String data){
+    public Voo(String origem, String num_voo, String partida, String chegada_prevista, String chegada_final, String data, String companhia, String terminal){
         m_Origem = origem;
         m_num_voo = num_voo;
         m_hora_partida = partida;
         m_hora_chegada_prevista = chegada_prevista;
         m_hora_chegada_final = chegada_final;
         m_data = data;
+        m_companhia = companhia;
+        m_terminal = terminal;
     }
 
     public String GetOrigem(){
@@ -40,5 +44,13 @@ public class Voo implements Serializable {
     }
     public String GetData(){
         return m_data;
+    }
+
+    public String GetCompanhia(){
+        return m_companhia;
+    }
+
+    public String GetTerminal(){
+        return m_terminal;
     }
 }

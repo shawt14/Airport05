@@ -29,14 +29,7 @@
         android:textSize="16sp"
         android:paddingTop="@dimen/item_padding" />
 
-     <SeekBar
-         android:id="@+id/seekBarProgresso"
-         android:max="100"
-         android:progress="0"
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content" />
-
-    <LinearLayout
+     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
