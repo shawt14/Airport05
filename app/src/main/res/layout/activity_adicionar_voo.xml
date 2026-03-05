@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/margin_standard"
+    tools:context=".AdicionarVooActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Origem"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etOrigem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ex: Lisboa"
+            android:inputType="text" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/item_padding"
+            android:text="Destino"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etDestino"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ex: Londres"
+            android:inputType="text" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/item_padding"
+            android:text="Número do Voo"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etNumVoo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ex: TP123"
+            android:inputType="text" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/item_padding"
+            android:text="Hora de Partida"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etPartida"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ex: 08:00"
+            android:inputType="time" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/item_padding"
+            android:text="Chegada Prevista"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etChegadaPrevista"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ex: 10:30"
+            android:inputType="time" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/item_padding"
+            android:text="Chegada Real"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etChegadaFinal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ex: 10:45"
+            android:inputType="time" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/item_padding"
+            android:text="Data"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ex: 26/02/2026"
+            android:inputType="text" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/item_padding"
+            android:text="Companhia"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etCompanhia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ex: TAP Air Portugal"
+            android:inputType="text" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/item_padding"
+            android:text="Terminal"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etTerminal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ex: Terminal 1"
+            android:inputType="text" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/item_padding"
+            android:text="Tipo de Movimento"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:id="@+id/rgTipo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rbChegada"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chegada" />
+
+            <RadioButton
+                android:id="@+id/rbPartida"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Partida" />
+
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnAdicionar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Adicionar" />
+
+            <Button
+                android:id="@+id/btnCancelar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Cancelar" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
