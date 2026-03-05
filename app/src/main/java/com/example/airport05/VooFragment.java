@@ -73,6 +73,19 @@ public class VooFragment extends Fragment {
                 listaFiltrada.add(v);
             }
         }
+        if ("Partida".equals(tipo)) {
+            listaFiltrada.sort((a, b) -> {
+                String ta = a.GetPartida() != null ? a.GetPartida() : "";
+                String tb = b.GetPartida() != null ? b.GetPartida() : "";
+                return ta.compareTo(tb);
+            });
+        } else {
+            listaFiltrada.sort((a, b) -> {
+                String ta = a.GetChegada_Prevista() != null ? a.GetChegada_Prevista() : "";
+                String tb = b.GetChegada_Prevista() != null ? b.GetChegada_Prevista() : "";
+                return ta.compareTo(tb);
+            });
+        }
     }
 
     public void refresh() {

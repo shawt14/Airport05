@@ -34,7 +34,11 @@ public class ItemAdapter extends ArrayAdapter<Voo> {
         TextView tvTimes = convertView.findViewById(R.id.tv_times);
 
         tvNumber.setText(voo.GetNum_Voo());
-        tvOrigin.setText(voo.GetOrigem() + " -> " + voo.GetDestino());
+        if ("Partida".equals(voo.GetTipo())) {
+            tvOrigin.setText("→ " + voo.GetDestino());
+        } else {
+            tvOrigin.setText(voo.GetOrigem() + " →");
+        }
         tvCompany.setText(voo.GetCompanhia());
         tvTerminal.setText(voo.GetTerminal());
 
