@@ -137,6 +137,34 @@
             android:hint="ex: Terminal 1"
             android:inputType="text" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/item_padding"
+            android:text="Tipo de Movimento"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:id="@+id/rgTipo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rbChegada"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chegada" />
+
+            <RadioButton
+                android:id="@+id/rbPartida"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Partida" />
+
+        </RadioGroup>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

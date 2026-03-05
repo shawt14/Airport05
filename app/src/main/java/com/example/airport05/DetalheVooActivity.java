@@ -25,7 +25,7 @@ public class DetalheVooActivity extends AppCompatActivity {
         txtOrigem.setText(voo.GetOrigem() + " -> " + voo.GetDestino() + " (" + voo.GetNum_Voo() + ")");
 
         TextView txtInfo = findViewById(R.id.detalheInfo);
-        txtInfo.setText("Partida: " + voo.GetPartida() + "  Previsto: " + voo.GetChegada_Prevista() + "  Real: " + voo.GetChegada_Final() + "\nData: " + voo.GetData() + "\nCompanhia: " + voo.GetCompanhia() + "\nTerminal: " + voo.GetTerminal());
+        txtInfo.setText("Tipo: " + voo.GetTipo() + "\nPartida: " + voo.GetPartida() + "  Previsto: " + voo.GetChegada_Prevista() + "  Real: " + voo.GetChegada_Final() + "\nData: " + voo.GetData() + "\nCompanhia: " + voo.GetCompanhia() + "\nTerminal: " + voo.GetTerminal());
 
         findViewById(R.id.btnOK).setOnClickListener(v -> finish());
 

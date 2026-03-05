@@ -12,8 +12,9 @@ public class Voo implements Serializable {
     private String m_data;
     private String m_companhia;
     private String m_terminal;
+    private String m_tipo;
 
-    public Voo(String origem, String destino, String num_voo, String partida, String chegada_prevista, String chegada_final, String data, String companhia, String terminal){
+    public Voo(String origem, String destino, String num_voo, String partida, String chegada_prevista, String chegada_final, String data, String companhia, String terminal, String tipo){
         m_Origem = origem;
         m_Destino = destino;
         m_num_voo = num_voo;
@@ -23,6 +24,7 @@ public class Voo implements Serializable {
         m_data = data;
         m_companhia = companhia;
         m_terminal = terminal;
+        m_tipo = tipo;
     }
 
     public String GetOrigem(){
@@ -58,5 +60,9 @@ public class Voo implements Serializable {
 
     public String GetTerminal(){
         return m_terminal;
+    }
+
+    public String GetTipo(){
+        return m_tipo;
     }
 }

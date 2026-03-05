@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -33,6 +34,7 @@ public class AdicionarVooActivity extends AppCompatActivity {
         EditText etData = findViewById(R.id.etData);
         EditText etCompanhia = findViewById(R.id.etCompanhia);
         EditText etTerminal = findViewById(R.id.etTerminal);
+        RadioGroup rgTipo = findViewById(R.id.rgTipo);
 
         Button btnAdicionar = findViewById(R.id.btnAdicionar);
         Button btnCancelar = findViewById(R.id.btnCancelar);
@@ -75,9 +77,17 @@ public class AdicionarVooActivity extends AppCompatActivity {
                 valid = false;
             }
 
+            int selectedTipoId = rgTipo.getCheckedRadioButtonId();
+            if (selectedTipoId == -1) {
+                Toast.makeText(this, "Selecione o tipo de movimento (Chegada ou Partida)", Toast.LENGTH_SHORT).show();
+                valid = false;
+            }
+
             if (!valid) return;
 
-            Voo novoVoo = new Voo(origem, destino, numVoo, partida, chegadaPrevista, chegadaFinal, data, companhia, terminal);
+            String tipo = (selectedTipoId == R.id.rbChegada) ? "Chegada" : "Partida";
+
+            Voo novoVoo = new Voo(origem, destino, numVoo, partida, chegadaPrevista, chegadaFinal, data, companhia, terminal, tipo);
             Intent resultIntent = new Intent();
             resultIntent.putExtra("NOVO_VOO", novoVoo);
             setResult(RESULT_OK, resultIntent);
