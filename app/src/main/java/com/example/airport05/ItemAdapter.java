@@ -38,11 +38,14 @@ public class ItemAdapter extends ArrayAdapter<Voo> {
         tvCompany.setText(voo.GetCompanhia());
         tvTerminal.setText(voo.GetTerminal());
 
-        String timeInfo = "Previsto: " + voo.GetChegada_Prevista();
-
-        if(voo.GetChegada_Final() != null)
-        {
-            timeInfo += "\nReal: " + voo.GetChegada_Final();
+        String timeInfo;
+        if ("Partida".equals(voo.GetTipo())) {
+            timeInfo = "Partida: " + voo.GetPartida();
+        } else {
+            timeInfo = "Previsto: " + voo.GetChegada_Prevista();
+            if (voo.GetChegada_Final() != null && !voo.GetChegada_Final().isEmpty()) {
+                timeInfo += "\nReal: " + voo.GetChegada_Final();
+            }
         }
         tvTimes.setText(timeInfo);
 
