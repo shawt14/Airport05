@@ -57,7 +57,14 @@ public class EditarVooActivity extends AppCompatActivity {
             } else {
                 rgTipo.check(R.id.rbPartida);
             }
+            applyTipoConstraints(voo.GetTipo(), etOrigem, etDestino);
         }
+
+        rgTipo.setOnCheckedChangeListener((group, checkedId) -> {
+            if (checkedId == -1) return;
+            String tipo = (checkedId == R.id.rbChegada) ? "Chegada" : "Partida";
+            applyTipoConstraints(tipo, etOrigem, etDestino);
+        });
 
         btnAdicionar.setText(R.string.save_label);
 
@@ -72,8 +79,19 @@ public class EditarVooActivity extends AppCompatActivity {
             String companhia = etCompanhia.getText().toString().trim();
             String terminal = etTerminal.getText().toString().trim();
 
-            if (origem.isEmpty() || numVoo.isEmpty()) {
+            int selectedTipoId = rgTipo.getCheckedRadioButtonId();
+            if (selectedTipoId == -1) {
+                Toast.makeText(this, "Selecione o tipo de movimento (Chegada ou Partida)", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            String tipo = (selectedTipoId == R.id.rbChegada) ? "Chegada" : "Partida";
+
+            if ("Chegada".equals(tipo) && (origem.isEmpty() || numVoo.isEmpty())) {
                 Toast.makeText(this, "Origem e número do voo são obrigatórios", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if ("Partida".equals(tipo) && (destino.isEmpty() || numVoo.isEmpty())) {
+                Toast.makeText(this, "Destino e número do voo são obrigatórios", Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -99,15 +117,7 @@ public class EditarVooActivity extends AppCompatActivity {
                 valid = false;
             }
 
-            int selectedTipoId = rgTipo.getCheckedRadioButtonId();
-            if (selectedTipoId == -1) {
-                Toast.makeText(this, "Selecione o tipo de movimento (Chegada ou Partida)", Toast.LENGTH_SHORT).show();
-                valid = false;
-            }
-
             if (!valid) return;
-
-            String tipo = (selectedTipoId == R.id.rbChegada) ? "Chegada" : "Partida";
 
             Voo vooEditado = new Voo(origem, destino, numVoo, partida, chegadaPrevista, chegadaFinal, data, companhia, terminal, tipo);
             Intent resultIntent = new Intent();
@@ -127,6 +137,21 @@ public class EditarVooActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+
+    private void applyTipoConstraints(String tipo, EditText etOrigem, EditText etDestino) {
+        if ("Chegada".equals(tipo)) {
+            etDestino.setText("Lisboa");
+            etDestino.setEnabled(false);
+            etOrigem.setEnabled(true);
+        } else if ("Partida".equals(tipo)) {
+            etOrigem.setText("Lisboa");
+            etOrigem.setEnabled(false);
+            etDestino.setEnabled(true);
+        } else {
+            etOrigem.setEnabled(true);
+            etDestino.setEnabled(true);
+        }
     }
 
     private boolean isValidTime(String value) {
