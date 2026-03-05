@@ -15,6 +15,9 @@
             android:name=".AdicionarVooActivity"
             android:exported="false" />
         <activity
+            android:name=".EditarVooActivity"
+            android:exported="false" />
+        <activity
             android:name=".DetalheVooActivity"
             android:exported="false" />
         <activity

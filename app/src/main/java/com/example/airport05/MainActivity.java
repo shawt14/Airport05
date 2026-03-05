@@ -65,6 +65,13 @@ public class MainActivity extends AppCompatActivity implements VooFragment.OnVoo
                 lista_voos.remove(pos);
                 refreshFragments();
             }
+        } else if (requestcode == REQUEST_DETALHES && resultcode == RESULT_OK && data != null && data.hasExtra("VOO_EDITADO")) {
+            Voo vooEditado = (Voo) data.getSerializableExtra("VOO_EDITADO");
+            int pos = data.getIntExtra("POSICAO", -1);
+            if (vooEditado != null && pos != -1) {
+                lista_voos.set(pos, vooEditado);
+                refreshFragments();
+            }
         } else if (requestcode == REQUEST_ADICIONAR && resultcode == RESULT_OK && data != null && data.hasExtra("NOVO_VOO")) {
             Voo novoVoo = (Voo) data.getSerializableExtra("NOVO_VOO");
             if (novoVoo != null) {
